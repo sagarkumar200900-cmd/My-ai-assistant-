@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My AI Assistant</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111827;
+      color: white;
+      text-align: center;
+      padding: 30px 15px;
+    }
+
+    .box {
+      max-width: 500px;
+      margin: auto;
+      background: #1f2937;
+      padding: 25px;
+      border-radius: 20px;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    #answer {
+      min-height: 80px;
+      margin: 25px 0;
+      padding: 15px;
+      background: #111827;
+      border-radius: 12px;
+      text-align: left;
+    }
+
+    input {
+      width: 90%;
+      padding: 14px;
+      border-radius: 10px;
+      border: none;
+      margin-bottom: 12px;
+    }
+
+    button {
+      padding: 13px 22px;
+      border: none;
+      border-radius: 10px;
+      background: #22c55e;
+      color: white;
+      font-size: 16px;
+      margin: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <h1>🤖 My AI Assistant</h1>
+    <p>Namaste! Main tumhara personal assistant hoon.</p>
+
+    <div id="answer">Mujhse kuch bhi poochho...</div>
+
+    <input id="question" placeholder="Yahan likho..." />
+    <br>
+
+    <button onclick="askAI()">Send</button>
+    <button onclick="speak()">🔊 Speak</button>
+  </div>
+
+  <script>
+    function askAI() {
+      const q = document.getElementById("question").value.toLowerCase();
+      let answer = "";
+
+      if (q.includes("hello") || q.includes("hi") || q.includes("namaste")) {
+        answer = "Namaste! 😊 Main tumhara personal AI assistant hoon.";
+      } 
+      else if (q.includes("naam")) {
+        answer = "Mera naam My AI Assistant hai. 🤖";
+      } 
+      else if (q.includes("kaise ho")) {
+        answer = "Main bilkul ready hoon! 😎";
+      } 
+      else {
+        answer = "Abhi main basic version hoon. Jaldi hi mujhe real AI se connect karenge! 🚀";
+      }
+
+      document.getElementById("answer").innerText = answer;
+    }
+
+    function speak() {
+      const text = document.getElementById("answer").innerText;
+      speechSynthesis.speak(new SpeechSynthesisUtterance(text));
+    }
+  </script>
+</body>
+</html>
